@@ -21,7 +21,7 @@ Widget build(BuildContext context){
             width: 100,
             height: 30,
           ),
-          Image.asset("assets/xy.png",
+          Image.asset("assets/hey.png",
           height: 200,
           fit: BoxFit.cover,),
           SizedBox(
@@ -72,37 +72,41 @@ Widget build(BuildContext context){
         //   minimumSize: Size(150, 40)
         //  ),
         //  ),
-        InkWell(
+        Material(
+          color:Colors.deepPurple,
+               borderRadius: BorderRadius.circular(changeButton?50:10),
 
-          onTap:  () async{
-            setState(() {
-               changeButton=true;
-            });
-
-            await Future.delayed(Duration(milliseconds: 800));
-             Navigator.pushNamed(context, MyRoutes.homeRoute);
-          },
-          child: AnimatedContainer(
-            duration: Duration(milliseconds: 800),
-            width:changeButton?50:150,
-            height:50,
-            alignment: Alignment.center,
-            child: changeButton
-            ?const Icon(Icons.done,
-            color:Colors.white)
-            :const Text("Login",
-            style: TextStyle(
-              color:Colors.white,
-              fontSize: 16
+          child: InkWell(
+            borderRadius: BorderRadius.circular(changeButton?50:10),
+            onTap:  () async{
+              setState(() {
+                 changeButton=true;
+              });
+        
+              await Future.delayed(Duration(milliseconds: 800));
+               Navigator.pushNamed(context, MyRoutes.homeRoute);
+            },
+            child: AnimatedContainer(
+              duration: Duration(milliseconds: 800),
+              width:changeButton?50:150,
+              height:50,
+              alignment: Alignment.center,
+              child: changeButton
+              ?const Icon(Icons.done,
+              color:Colors.white)
+              :const Text("Login",
+              style: TextStyle(
+                color:Colors.white,
+                fontSize: 16
+              ),
+              ),
+              // decoration: BoxDecoration(
+                
+              // //   shape: changeButton
+              // //   ? BoxShape.circle
+              // //   :BoxShape.rectangle,
+              // ) ,
             ),
-            ),
-            decoration: BoxDecoration(
-              color:Colors.deepPurple,
-            //   shape: changeButton
-            //   ? BoxShape.circle
-            //   :BoxShape.rectangle,
-             borderRadius: BorderRadius.circular(changeButton?50:10)
-            ) ,
           ),
         )
               ],
